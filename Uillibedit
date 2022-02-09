@@ -143,20 +143,7 @@ function library:CreateWindow(title, bind, discinv)
     UIStroke1.Color = Color3.fromRGB(255, 255, 255)
     UIStroke1.Parent = TabScreen
 
-    local PlrScreen = Instance.new("Frame")
-    PlrScreen.Name = "PlrScreen"
-    PlrScreen.Size = UDim2.new(0, 184, 0, 85)
-    PlrScreen.Position = UDim2.new(0, 346, 0, 0)
-    PlrScreen.BackgroundColor3 = library.theme.BackgroundClr
-    PlrScreen.Parent = Main
-    PlrScreen.Visible = true
-    PlrScreen.ClipsDescendants = true
-    local UIStroke2 = Instance.new("UIStroke")
-    UIStroke2.Color = library.theme.MainClr
-    UIStroke2.Parent = PlrScreen
-    UIStroke2.Transparency = 0
-
-    local PlrScreentog, TabListtog = true, true
+  
 
 
     menu.MouseButton1Click:Connect(
@@ -279,101 +266,7 @@ function library:CreateWindow(title, bind, discinv)
             end
         end
     )
-    local UICorner2 = Instance.new("UICorner")
-    UICorner2.Parent = PlrScreen
-    local Players = game:GetService("Players")
-
-    local userId = LocalPlayer.UserId
-    local thumbType = Enum.ThumbnailType.HeadShot
-    local thumbSize = Enum.ThumbnailSize.Size48x48
-    local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
-
-    local PlrAvatar = Instance.new("ImageLabel")
-    PlrAvatar.Name = "PlrAvatar"
-    PlrAvatar.Size = UDim2.new(0, 40, 0, 40)
-    PlrAvatar.BackgroundTransparency = 1
-    PlrAvatar.Position = UDim2.new(0, 6, 0, 6)
-    PlrAvatar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    PlrAvatar.Image = content
-    PlrAvatar.Parent = PlrScreen
-    PlrAvatar.ClipsDescendants = true
-
-    local UICorner3 = Instance.new("UICorner")
-    UICorner3.CornerRadius = UDim.new(0, 100)
-    UICorner3.Parent = PlrAvatar
-
-    local TextLabel = Instance.new("TextLabel")
-    TextLabel.Size = UDim2.new(0, 128, 0, 30)
-    TextLabel.BackgroundTransparency = 1
-    TextLabel.Position = UDim2.new(0, 45, 0, 6)
-    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TextLabel.FontSize = Enum.FontSize.Size18
-    TextLabel.TextSize = 16
-    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    TextLabel.Text = game.Players.LocalPlayer.Name
-    TextLabel.Font = Enum.Font.GothamBold
-    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-    TextLabel.Parent = PlrScreen
-
-    local TextButton = Instance.new("TextButton")
-    TextButton.Size = UDim2.new(0, 172, 0, 29)
-    TextButton.Position = UDim2.new(0, 6, 0, 46)
-    TextButton.BackgroundColor3 = library.theme.MainClr
-    TextButton.FontSize = Enum.FontSize.Size14
-    TextButton.TextSize = 14
-    TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-    TextButton.Font = Enum.Font.SourceSans
-    TextButton.Parent = PlrScreen
-
-    local UICorner4 = Instance.new("UICorner")
-    UICorner4.Parent = TextButton
-
-    local TextButton1 = Instance.new("TextButton")
-    TextButton1.Size = UDim2.new(0, 170, 0, 27)
-    TextButton1.Position = UDim2.new(0, 1, 0, 1)
-    TextButton1.BackgroundColor3 = library.theme.BackgroundClr
-    TextButton1.FontSize = Enum.FontSize.Size14
-    TextButton1.TextSize = 14
-    TextButton1.TextColor3 = Color3.fromRGB(255, 255, 255)
-    TextButton1.Text = "Join Discord"
-    TextButton1.Font = Enum.Font.GothamSemibold
-    TextButton1.Parent = TextButton
-
-    local UICorner5 = Instance.new("UICorner")
-    UICorner5.Parent = TextButton1
-    if syn then
-        getgenv().http_request = syn.request
-    elseif SENTINEL_LOADED then
-        getgenv().http_request = request
-    elseif PROTOSMASHER_LOADED then
-        getgenv().http_request = request
-    elseif KRNL_LOADED then
-        getgenv().http_request = request
-    end
-
-    TextButton1.MouseButton1Click:Connect(
-        function()
-            http_request(
-                {
-                    Url = "http://127.0.0.1:6463/rpc?v=1",
-                    Method = "POST",
-                    Headers = {
-                        ["Content-Type"] = "application/json",
-                        ["Origin"] = "https://discord.com"
-                    },
-                    Body = game:GetService("HttpService"):JSONEncode(
-                        {
-                            cmd = "INVITE_BROWSER",
-                            args = {
-                                code = discinv
-                            },
-                            nonce = game:GetService("HttpService"):GenerateGUID(false)
-                        }
-                    )
-                }
-            )
-        end
-    )
+  
     local Dragger = Instance.new("Frame")
     Dragger.Name = "Dragger"
     Dragger.ZIndex = 2
