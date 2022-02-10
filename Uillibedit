@@ -62,7 +62,7 @@ local Mouse = LocalPlayer:GetMouse()
 
 local UI = Instance.new("ScreenGui")
 UI.Name = randomString
-UI.Parent = LocalPlayer
+UI.Parent = workspace
 if syn then
     syn.protect_gui(UI)
 end
