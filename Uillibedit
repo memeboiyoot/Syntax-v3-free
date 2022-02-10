@@ -12,11 +12,6 @@ local config = {}
 local placeID = tostring(game.PlaceId)
 local httpService = game:GetService("HttpService")
 
-pcall(
-    function()
-        config = httpService:JSONDecode(readfile("Testsssss.txt"))
-    end
-)
 
 for i, v in pairs(game:GetService("CoreGui").RobloxGui.Modules:GetChildren()) do
     if v.ClassName == "ScreenGui" then
