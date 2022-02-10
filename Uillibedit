@@ -22,9 +22,9 @@ local function saveConfig()
     writefile("Testsssss.txt", httpService:JSONEncode(config))
 end
 
-local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-local length = 20
-local randomString = ""
+local chars = "Balls"
+local length = 4
+local randomString = "Balls"
 
 math.randomseed(os.time())
 
@@ -34,7 +34,7 @@ for c in chars:gmatch "." do
 end
 
 for i = 1, length do
-    randomString = balls
+    randomString = randomString .. charTable[math.random(1, #charTable)]
 end
 
 for i, v in pairs(game:GetService("CoreGui").RobloxGui.Modules:GetChildren()) do
