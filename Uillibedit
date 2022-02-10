@@ -22,8 +22,8 @@ local function saveConfig()
     writefile("Testsssss.txt", httpService:JSONEncode(config))
 end
 
-local chars = "T"
-local length = 1
+local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+local length = 20
 local randomString = ""
 
 math.randomseed(os.time())
@@ -37,6 +37,22 @@ for i = 1, length do
     randomString = randomString .. charTable[math.random(1, #charTable)]
 end
 
+for i, v in pairs(game:GetService("CoreGui").RobloxGui.Modules:GetChildren()) do
+    if v.ClassName == "ScreenGui" then
+        for i1, v1 in pairs(v:GetChildren()) do
+            if v1.Name == "Main" then
+                for i2, v2 in pairs(v1:GetChildren()) do
+                    do
+                        local ui = v
+                        if ui then
+                            ui:Destroy()
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
 
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -45,9 +61,11 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 
 local UI = Instance.new("ScreenGui")
-UI.Name = randomString
-UI.Parent = workspace
-
+UI.Name = Animatior
+UI.Parent = game:GetService("CoreGui").RobloxGui.Modules
+if syn then
+    syn.protect_gui(UI)
+end
 
 function library:Destroy()
     library:Destroy()
