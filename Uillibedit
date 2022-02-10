@@ -18,10 +18,6 @@ pcall(
     end
 )
 
-local function saveConfig()
-    writefile("Testsssss.txt", httpService:JSONEncode(config))
-end
-
 for i, v in pairs(game:GetService("CoreGui").RobloxGui.Modules:GetChildren()) do
     if v.ClassName == "ScreenGui" then
         for i1, v1 in pairs(v:GetChildren()) do
