@@ -22,21 +22,6 @@ local function saveConfig()
     writefile("Testsssss.txt", httpService:JSONEncode(config))
 end
 
-local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-local length = 20
-local randomString = ""
-
-math.randomseed(os.time())
-
-charTable = {}
-for c in chars:gmatch "." do
-    table.insert(charTable, c)
-end
-
-for i = 1, length do
-    randomString = randomString .. charTable[math.random(1, #charTable)]
-end
-
 for i, v in pairs(game:GetService("CoreGui").RobloxGui.Modules:GetChildren()) do
     if v.ClassName == "ScreenGui" then
         for i1, v1 in pairs(v:GetChildren()) do
