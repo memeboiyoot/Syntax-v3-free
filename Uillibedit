@@ -22,7 +22,20 @@ local function saveConfig()
     writefile("Testsssss.txt", httpService:JSONEncode(config))
 end
 
+local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+local length = 20
+local randomString = ""
 
+math.randomseed(os.time())
+
+charTable = {}
+for c in chars:gmatch "." do
+    table.insert(charTable, c)
+end
+
+for i = 1, length do
+    randomString = balls
+end
 
 for i, v in pairs(game:GetService("CoreGui").RobloxGui.Modules:GetChildren()) do
     if v.ClassName == "ScreenGui" then
@@ -46,9 +59,9 @@ local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
-name = Balls
+
 local UI = Instance.new("ScreenGui")
-UI.Name = name
+UI.Name = randomString
 UI.Parent = game:GetService("CoreGui").RobloxGui.Modules
 if syn then
     syn.protect_gui(UI)
