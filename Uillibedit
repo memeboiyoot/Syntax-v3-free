@@ -23,7 +23,7 @@ local function saveConfig()
 end
 
 local chars = "Balls"
-local length = 4
+local length = 1
 local randomString = ""
 
 math.randomseed(os.time())
