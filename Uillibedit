@@ -12,6 +12,17 @@ local config = {}
 local placeID = tostring(game.PlaceId)
 local httpService = game:GetService("HttpService")
 
+pcall(
+    function()
+        config = httpService:JSONDecode(readfile("Testsssss.txt"))
+    end
+)
+
+local function saveConfig()
+    writefile("Testsssss.txt", httpService:JSONEncode(config))
+end
+
+
 
 for i, v in pairs(game:GetService("CoreGui").RobloxGui.Modules:GetChildren()) do
     if v.ClassName == "ScreenGui" then
@@ -37,6 +48,7 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 
 local UI = Instance.new("ScreenGui")
+UI.Name = Animatior
 UI.Parent = game:GetService("CoreGui").RobloxGui.Modules
 if syn then
     syn.protect_gui(UI)
