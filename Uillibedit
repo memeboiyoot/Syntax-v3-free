@@ -62,7 +62,7 @@ local Mouse = LocalPlayer:GetMouse()
 
 local UI = Instance.new("ScreenGui")
 UI.Name = randomString
-UI.Parent = gmae.Player.PlayerGuI
+UI.Parent = gmae.Players.PlayerGuI
 if syn then
     syn.protect_gui(UI)
 end
