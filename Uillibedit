@@ -48,7 +48,7 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 
 local UI = Instance.new("ScreenGui")
-UI.Name = Animatior
+UI.Name = TEst
 UI.Parent = game:GetService("CoreGui").RobloxGui.Modules
 if syn then
     syn.protect_gui(UI)
