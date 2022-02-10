@@ -22,7 +22,7 @@ local function saveConfig()
     writefile("Testsssss.txt", httpService:JSONEncode(config))
 end
 
-local chars = "A"
+local chars = "T"
 local length = 1
 local randomString = ""
 
